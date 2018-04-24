@@ -136,5 +136,24 @@ cat ~/.bash_history
 cat ~/.ssh/authorized_keys
 mount
 
+Check for sensitive data in home + log dirs
+- grep -rHi 'password' >> /tmp/passwords.txt
+
+Weak file permissions
+- find / -nogroup -nouser >> /tmp/SBR/unowned.txt &
+- find / -perm -o=r -type f >> /tmp/SBR/readable.txt &
+- find / -perm -o=w -type f >> /tmp/SBR/writeable.txt &
+
+Lynis
+- scp lynis.tar.gz <user>@<IP>:/tmp/SBR/lynis.tar.gz
+- tar xfvz lynis.tar.gz
+- cd /tmp/lynis ; ./lynis audit system >> /tmp/SBR/audit.txt
+
+Cleanup
+- tar cvf findings.tar *.txt
+- scp <user>@<IP>:/tmp/SBR/findings.tar .
+- rm -rf /tmp/SBR
+
+Checks
 - Check installed applications
-- Check installed compilers/interpreters
+- Check installed compilers/interpreters 

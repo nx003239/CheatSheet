@@ -6,7 +6,7 @@ alias gdb='gdb -quiet'
 Running gdb
 ------------------
 $ gdb        		- run, then use file command to load object 
-$ gdb -quiet        - supress copyright information
+$ gdb -quiet        	- supress copyright information
 $ gdb object      	- normal debug 
 $ gdb object core 	- analyze core dump
 $ gdb object pid  	- attach to running process
