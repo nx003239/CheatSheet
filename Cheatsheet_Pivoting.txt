@@ -1,0 +1,27 @@
+# Number of ways to pivot through a device / network
+
+# SSH local port forwarding to bypass host based firewall
+ssh -L <RHOST>:<RPORT>:<LHOST>:<LPORT> <USER>@<RHOST>
+ssh -L 1.2.3.4:1234:127.0.0.1:5678 user@1.2.3.4
+
+# Netcat pivoting through network firewall 
+Ncat -l <LPORT> --sh-exec (want SSH prompt) "ncat <RHOST> <RPORT> -p <SOURCE_PORT>" --keep-open
+ncat -l 5678 --sh-exec "ncat 1.2.3.4 22 -p 88" --keep-open
+ssh -l <USER> 127.0.0.1 -p 5678
+
+# Configure all traffic through single port
+iptables -t nat -A POSTROUTING -p tcp -o <ETH> -j SNAT --to <IP>:<PORT>
+iptables -t nat -A POSTROUTING -p tcp -o eth0 -j SNAT --to 1.2.3.4:88
+iptables -t nat -L # List
+iptables -t nat -F # Flush
+
+# SSH dynamic port fowarding via compromised host
+ssh -D <LPORT> <USER>@<RHOST>
+ssh -D 1234 user@1.2.3.4
+proxychains <CMD> <INTERNAL_HOST>
+
+# Automating via Meterpreter 
+Meterpreter > portfwd add -l <LPORT> -p <RPORT> -r <RHOST>
+Meterpreter > portfwd add -l 9999 -p 22 -r 20.10.10.26
+ssh -l <USER> 127.0.0.1 -p 9999
+

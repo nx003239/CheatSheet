@@ -22,10 +22,10 @@ ping google.com -c3 >> tmp
 cat file		Show entire contents of file.
 more file		Show one page at a time.  Space bar for next page and (q) to exit.
 head file		Show the first 10 lines.
-head -15 file	Show the first 15 lines.
+head -15 file		Show the first 15 lines.
 tail file		Show the last 10 lines.
-tail -15 file	Show the last 15 lines.
-tail -f file	Useful when viewing the output of a log file.
+tail -15 file		Show the last 15 lines.
+tail -f file		Useful when viewing the output of a log file.
 
 [+] pipe
 cat tmp | grep Bcast	Feeds the output of one process to the input of another process.
@@ -122,6 +122,11 @@ for host in $(cat hosts.txt)
 do
 	command $host
 done
+
+[+] Read in file
+while read $VAR; do
+	echo $VAR
+done < $FILENAME
 
 [+] One Liners
 
