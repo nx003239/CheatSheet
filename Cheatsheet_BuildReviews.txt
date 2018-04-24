@@ -139,6 +139,7 @@ mount
 
 Check for sensitive data in home + log dirs
 - grep -rHi 'password' >> /tmp/passwords.txt
+- Cheatsheet_PillageList.txt
 
 Weak file permissions
 - find / -nogroup -nouser >> /tmp/SBR/unowned.txt &

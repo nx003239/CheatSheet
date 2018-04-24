@@ -58,6 +58,11 @@ Notes:
 [+] Download and install burp certificate (.crt) onto the emulator using the push shell command.
 
 
+----------------------------------------- Static Mobile App Code Review (Android + iOS)
+
+https://www.darknet.org.uk/2018/04/stacoan-mobile-app-static-analysis-tool/
+
+
 Notes:
 
 [+] Application file type - x.apk

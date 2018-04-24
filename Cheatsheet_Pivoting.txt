@@ -25,3 +25,6 @@ Meterpreter > portfwd add -l <LPORT> -p <RPORT> -r <RHOST>
 Meterpreter > portfwd add -l 9999 -p 22 -r 20.10.10.26
 ssh -l <USER> 127.0.0.1 -p 9999
 
+# Tunnel traffic using sshuttle (requires SSH access)
+sshuttle -r <USER>@<RHOST> 0/0
+sshuttle -r <USER>@<RHOST> 192.168.0.0/24

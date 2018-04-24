@@ -1,0 +1,40 @@
+------------------------------------------------ DHCP
+
+[+] Install and configure ISC
+
+sudo apt-get install isc-dhcp-server
+
+/etc/default/isc-dhcp-server
+- INTERFACES="$INF"
+
+[+] Configure /etc/dhcp/dhcp.conf
+
+- DNS
+  option domain-name "$DOMAIN";
+  option domain-name-servers $RHOST;
+
+- Make official
+  authoritative;
+
+- Give range
+  subnet 192.168.1.0 netmask 255.255.255.0 {
+  range 192.168.1.20 192.168.1.30;
+  option domain-name-servers $RHOST;
+  option domain-name "$DOMAIN";
+  option routers 192.168.1.1;
+  option broadcast-address 192.168.1.255;
+  default-lease-time 600;
+  max-lease-time 7200;
+  }
+
+- Fixed addresses
+  host $RHOST {
+  hardware ethernet 08:00:27:13:14:d5;
+  fixed-address 192.168.1.160;
+  }
+
+[+] Start service
+
+sudo service isc-dhcp-server start
+
+
