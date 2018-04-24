@@ -16,6 +16,7 @@ Disk encryption (if relevant)
 BIOS passwords set.
 Proxy settings (if relevant).
 Nessus Scan (With Credentials).
+Use sniffer or drop pyshark onto box to get pcap
 
 [+] Windows Hosts:
 
