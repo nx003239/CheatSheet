@@ -40,3 +40,11 @@ find -name $FILE -exec cat {} + >> combined.txt
 [+] Find service / port
 
 cat /etc/services | grep $PORT
+
+[+] Get WAN IP
+
+dig +short myip.opendns.com @resolver1.opendns.com
+
+[+] M$ FTP Port Scanner
+
+ftp && open <IP> <PORT> && quit
