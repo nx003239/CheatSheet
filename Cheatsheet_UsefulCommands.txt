@@ -48,3 +48,8 @@ dig +short myip.opendns.com @resolver1.opendns.com
 [+] M$ FTP Port Scanner
 
 ftp && open <IP> <PORT> && quit
+
+[+] Count instances of string
+
+grep -o '<TERM>' | wc -l 
+
