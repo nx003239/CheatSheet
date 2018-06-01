@@ -1,0 +1,14 @@
+[+] PSexec Issues
+
+STATUS_LOGIN_TYPE_NOT_GRANTED
+Set GPO\Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment to blank
+
+STATUS_ACCOUNT_RESTRICTION 
+Local Security Policy/Accounts: Limit local account use of blank passwords to computer
+
+STATUS_ACCESS_DENIED 
+HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\LanManServer\Parameters” with “RequireSecuritySignature” set to 0
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System with  “LocalAccountTokenFilterPolicy” set to 1.
+
+Disable Windows / Third party Firewalls to allow access to TCP ports 139 / 445
+System32 > Netsh firewall set opmode disable
