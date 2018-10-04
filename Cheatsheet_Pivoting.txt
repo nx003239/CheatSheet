@@ -4,6 +4,11 @@
 ssh -L <RHOST>:<RPORT>:<LHOST>:<LPORT> <USER>@<RHOST>
 ssh -L 1.2.3.4:1234:127.0.0.1:5678 user@1.2.3.4
 
+# SSH local port forward example to gain access to internal web server
+ssh -L <LPORT>:localhost:<RPORT> <USER>@<RHOST>
+ssh -L 8080:localhost:443 user@1.2.3.4
+firefox https://1.2.3.4:8080
+
 # Netcat pivoting through network firewall 
 Ncat -l <LPORT> --sh-exec (want SSH prompt) "ncat <RHOST> <RPORT> -p <SOURCE_PORT>" --keep-open
 ncat -l 5678 --sh-exec "ncat 1.2.3.4 22 -p 88" --keep-open

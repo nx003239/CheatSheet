@@ -124,7 +124,7 @@ do
 done
 
 [+] Read in file
-while read $VAR; do
+while read VAR; do
 	echo $VAR
 done < $FILENAME
 
