@@ -12,3 +12,10 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System wit
 
 Disable Windows / Third party Firewalls to allow access to TCP ports 139 / 445
 System32 > Netsh firewall set opmode disable
+
+[+] Nessus keybased Auth Issues
+
+Nessus does not accept ecd ssh keys. i.e. that begins with
+-----BEGIN OPENSSH PRIVATE KEY-----
+
+Requires rsa key to be ssh-keygen 

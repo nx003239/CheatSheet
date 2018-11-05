@@ -128,7 +128,20 @@ while read VAR; do
 	echo $VAR
 done < $FILENAME
 
+[+] Nessus greping
+All open ports
+grep '10335' *.csv | cut -d "," -f5,7 | sed -e 's/"//g' | sort -t . -k 1,1n -k 2,2n -k 3,3n -k 4,4n >> open_ports.txt
+
+Find service ports
+grep '$SERVICE' *.nessus | grep 'port=' | cut -d " " -f2 | cut -d "\"" -f2 | sort | uniq > service_ports.txt
+
+Find all hosts running services
+grep ',$PORT$' open_ports.txt 
+
 [+] One Liners
 
 Port Scan:
 for port in $(cat Ports.txt); do nc -nzv 192.168.0.1 $port & sleep 0.5; done
+
+SSH Check:
+for host in $(cat targets.txt); do ssh $host "cat /etc/*release* ; exit " ; done
