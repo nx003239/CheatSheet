@@ -13,6 +13,11 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System wit
 Disable Windows / Third party Firewalls to allow access to TCP ports 139 / 445
 System32 > Netsh firewall set opmode disable
 
+Enable Admin Shares (IPC$)
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters\AutoShareServer set to 1
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters\AutoShareWks set to 1
+
 [+] Nessus keybased Auth Issues
 
 Nessus does not accept ecd ssh keys. i.e. that begins with
