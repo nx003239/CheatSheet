@@ -27,3 +27,15 @@ Note: You will probably need to add individual routes for each vlan if you want 
 
 [+] Remove Configuration
 vconfig rem eth0.101
+
+Setting via IP commands
+--------------------------
+ip link add link <NIC> name <NIC>.<VLAN> type vlan id <VLAN>
+ip address add <IP> dev <NIC>.<VLAN>
+ip link set <NIC>.<VLAN> up
+
+[+] Example
+ 
+ip link add link eth0 name eth0.100 type vlan id 100
+ip address add 10.10.10.10/24 dev eth0.100
+ip link set eth0.100 up
