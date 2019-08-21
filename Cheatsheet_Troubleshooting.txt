@@ -13,6 +13,10 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System wit
 Disable Windows / Third party Firewalls to allow access to TCP ports 139 / 445
 System32 > Netsh firewall set opmode disable
 
+Getting round Group Policy Firewalls
+Firewall allow apps --> File and Printer Sharing --> Private On
+secpol.msc --> Security Settings --> Network List Manager Policies --> Unindentified Networks --> Location Type = Public
+
 Enable Admin Shares (IPC$)
 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters\AutoShareServer set to 1
 
