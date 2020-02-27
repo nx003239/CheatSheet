@@ -17,3 +17,18 @@ nmap -p 1521 -A 192.168.15.205
 
 Nmap nse scripts
 Metasploit auxiliaries
+
+Obtaining SID
+Brute force - odat-libc2.5-x86_64 sidguesser -s <RHOST> -p <RPORT> --sids-file sids.txt
+ps -ef | grep oracle
+cat /proc/<ORACLE_PID>/environ
+printenv as oracle user
+find / -iname listener.ora | cat <FILE>
+
+Use dbvis to access data
+
+Test unencrypted 
+Transit - Wireshark
+Rest - SELECT TABLESPACE_NAME,ENCRYPTED FROM DBA_TABLESPACES;
+
+
